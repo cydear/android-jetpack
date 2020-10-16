@@ -1,0 +1,8 @@
+include ':app'
+rootProject.name = "android-jetpack"
+
+include ':baselib'
+project(':baselib').projectDir = new File('core/baselib')
+
+include ':lifecycle'
+project(':lifecycle').projectDir = new File('sample/lifecycle')

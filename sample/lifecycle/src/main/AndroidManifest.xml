@@ -1,0 +1,7 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.code.app.lifecycle">
+
+    <application>
+        <activity android:name=".LifeCycleActivity" />
+    </application>
+</manifest>
