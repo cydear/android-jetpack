@@ -1,20 +1,20 @@
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
-
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+}
 
 android {
     compileSdkVersion 29
     buildToolsVersion "30.0.2"
 
     defaultConfig {
-        applicationId "com.code.app"
-        minSdkVersion 21
+        minSdkVersion 19
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
@@ -23,11 +23,16 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
 }
 
 dependencies {
-    implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation project(path: ':lifecycle')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation project(path: ':baselib')
-    implementation project(path: ':viewmodel')
 }
